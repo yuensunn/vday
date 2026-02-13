@@ -50,7 +50,6 @@
     transform: scale(1);
   }
 
-  /* ============ FLOATING HEARTS ============ */
   .hearts-bg {
     position: fixed;
     inset: 0;
@@ -61,88 +60,15 @@
 
   .floating-heart {
     position: absolute;
-    font-size: 1.4rem;
-    opacity: 0.15;
+    opacity: 0.13;
     animation: floatUp linear infinite;
   }
 
   @keyframes floatUp {
     0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.15; }
-    90% { opacity: 0.15; }
+    10% { opacity: 0.13; }
+    90% { opacity: 0.13; }
     100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-  }
-
-  /* ============ PAGE 1: WELCOME ============ */
-  #page1 {
-    background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 40%, #f8bbd0 100%);
-  }
-
-  .envelope-wrapper {
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  .envelope-wrapper:hover { transform: scale(1.05); }
-
-  .envelope {
-    width: 240px;
-    height: 170px;
-    background: linear-gradient(145deg, #fff, #fce4ec);
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(232, 69, 107, 0.2);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.6s;
-  }
-
-  .envelope::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 50%;
-    background: linear-gradient(135deg, var(--rose) 0%, #e57373 100%);
-    clip-path: polygon(0 0, 50% 80%, 100% 0);
-  }
-
-  .envelope .seal {
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 15px rgba(212, 160, 57, 0.4);
-    z-index: 2;
-  }
-
-  .welcome-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.8rem;
-    color: var(--rose);
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .welcome-sub {
-    font-size: 1.05rem;
-    color: var(--wine);
-    margin-bottom: 2.5rem;
-    text-align: center;
-    opacity: 0.8;
-  }
-
-  .open-text {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    color: var(--rose);
-    animation: pulse 2s ease-in-out infinite;
   }
 
   @keyframes pulse {
@@ -150,465 +76,13 @@
     50% { opacity: 1; }
   }
 
-  /* ============ PAGE 2: RIDDLE ============ */
-  #page2 {
-    background: linear-gradient(160deg, #2d1b30 0%, #6b2142 50%, #e8456b 100%);
-    color: white;
+  @keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
   }
 
-  .challenge-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 100px;
-    padding: 0.4rem 1.2rem;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(10px);
-  }
-
-  .riddle-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .riddle-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .riddle-card p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    opacity: 0.9;
-    margin-bottom: 2rem;
-  }
-
-  .answer-options {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-
-  .answer-btn {
-    background: rgba(255,255,255,0.08);
-    border: 1.5px solid rgba(255,255,255,0.25);
-    color: white;
-    padding: 0.9rem 1.5rem;
-    border-radius: 12px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .answer-btn:hover {
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(255,255,255,0.5);
-    transform: translateX(5px);
-  }
-
-  .answer-btn.correct {
-    background: rgba(76, 175, 80, 0.3);
-    border-color: #4caf50;
-  }
-
-  .answer-btn.wrong {
-    background: rgba(244, 67, 54, 0.3);
-    border-color: #f44336;
-    animation: shake 0.5s;
-  }
-
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
-  }
-
-  .feedback-msg {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    min-height: 1.5rem;
-    transition: opacity 0.3s;
-  }
-
-  /* ============ PAGE 3: EMOJI PUZZLE ============ */
-  #page3 {
-    background: linear-gradient(135deg, #fdf8f4 0%, #fff0f3 50%, #fce4ec 100%);
-  }
-
-  .puzzle-card {
-    background: white;
-    border-radius: 24px;
-    padding: 2.5rem 2rem;
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(232, 69, 107, 0.12);
-  }
-
-  .puzzle-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--deep);
-    margin-bottom: 0.5rem;
-  }
-
-  .emoji-display {
-    font-size: 2.8rem;
-    letter-spacing: 0.5rem;
-    margin: 1.5rem 0;
-    line-height: 1.4;
-  }
-
-  .hint-text {
-    font-size: 0.85rem;
-    color: #999;
-    margin-bottom: 1.5rem;
-  }
-
-  .word-input-group {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-  }
-
-  .word-slot {
-    display: flex;
-    gap: 3px;
-  }
-
-  .letter-box {
-    width: 36px;
-    height: 44px;
-    border: 2px solid #e0d4d8;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--deep);
-    text-transform: uppercase;
-    background: var(--blush);
-    transition: all 0.3s;
-  }
-
-  .letter-box.filled {
-    border-color: var(--rose);
-    background: white;
-    animation: popIn 0.2s;
-  }
-
-  .letter-box.correct-letter {
-    border-color: #4caf50;
-    background: #e8f5e9;
-    color: #2e7d32;
-  }
-
-  @keyframes popIn {
-    0% { transform: scale(0.8); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-
-  .scrambled-letters {
-    display: flex;
-    gap: 0.4rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-
-  .letter-tile {
-    width: 40px;
-    height: 44px;
-    background: var(--rose);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-  }
-
-  .letter-tile:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(232, 69, 107, 0.3); }
-  .letter-tile.used { opacity: 0.25; pointer-events: none; transform: scale(0.9); }
-
-  .puzzle-actions {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-  }
-
-  .reset-btn {
-    background: none;
-    border: 2px solid #e0d4d8;
-    color: var(--wine);
-    padding: 0.6rem 1.5rem;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .reset-btn:hover { border-color: var(--rose); }
-
-  /* ============ PAGE 4: CATCH THE HEARTS GAME ============ */
-  #page4 {
-    background: linear-gradient(180deg, #1a0a2e 0%, #3d1552 50%, #6b2142 100%);
-    color: white;
-    padding: 1rem;
-  }
-
-  .game-container {
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-  }
-
-  .game-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.8rem;
-  }
-
-  .score-display {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .timer-display {
-    background: rgba(255,255,255,0.1);
-    padding: 0.3rem 1rem;
-    border-radius: 100px;
-    font-size: 0.9rem;
-  }
-
-  .game-area {
-    width: 100%;
-    height: 350px;
-    background: rgba(255,255,255,0.05);
-    border: 1.5px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    touch-action: manipulation;
-  }
-
-  .game-heart {
-    position: absolute;
-    font-size: 2rem;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.1s;
-    animation: heartDrop linear forwards;
-  }
-
-  .game-heart:hover { transform: scale(1.3); }
-
-  @keyframes heartDrop {
-    0% { top: -40px; }
-    100% { top: 370px; }
-  }
-
-  .game-heart.caught {
-    animation: heartCaught 0.3s forwards !important;
-  }
-
-  @keyframes heartCaught {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.8); }
-    100% { transform: scale(0); opacity: 0; }
-  }
-
-  .progress-bar-bg {
-    width: 100%;
-    height: 8px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 100px;
-    margin-top: 1rem;
-    overflow: hidden;
-  }
-
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--rose), var(--gold));
-    border-radius: 100px;
-    transition: width 0.3s;
-  }
-
-  .game-instruction {
-    font-size: 0.85rem;
-    opacity: 0.7;
-    margin-top: 0.6rem;
-  }
-
-  .start-game-btn {
-    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
-    color: white;
-    border: none;
-    padding: 1rem 2.5rem;
-    border-radius: 14px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-    margin-top: 1rem;
-  }
-
-  .start-game-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232, 69, 107, 0.4); }
-
-  /* ============ PAGE 5: FINAL REVEAL ============ */
-  #page5 {
-    background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 30%, #f8bbd0 60%, #fff0f3 100%);
-  }
-
-  .final-card {
-    background: white;
-    border-radius: 28px;
-    padding: 2.5rem 2rem;
-    max-width: 480px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 25px 80px rgba(232, 69, 107, 0.18);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .final-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--rose), var(--gold), var(--rose));
-  }
-
-  .final-hearts {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .final-card h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.4rem;
-    color: var(--rose);
-    margin-bottom: 0.5rem;
-  }
-
-  .final-card .name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--deep);
-    margin-bottom: 1rem;
-  }
-
-  .final-card .message {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 2rem;
-    padding: 0 0.5rem;
-  }
-
-  .dinner-details {
-    background: var(--blush);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .dinner-details h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--deep);
-    margin-bottom: 0.8rem;
-  }
-
-  .detail-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    color: var(--wine);
-    margin-bottom: 0.4rem;
-  }
-
-  .yes-btn {
-    background: linear-gradient(135deg, var(--rose), #d4366e);
-    color: white;
-    border: none;
-    padding: 1rem 3rem;
-    border-radius: 100px;
-    font-size: 1.15rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-    box-shadow: 0 8px 30px rgba(232, 69, 107, 0.35);
-    position: relative;
-  }
-
-  .yes-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(232, 69, 107, 0.45);
-  }
-
-  .no-btn {
-    background: none;
-    border: none;
-    color: #ccc;
-    font-size: 0.8rem;
-    cursor: pointer;
-    margin-top: 0.8rem;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-    padding: 0.5rem 1rem;
-  }
-
-  .btn-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* ============ PAGE 6: CELEBRATION ============ */
-  #page6 {
-    background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 100%);
-  }
-
-  .celebration-card {
-    text-align: center;
-    max-width: 480px;
-  }
-
-  .celebration-card .big-heart {
-    font-size: 5rem;
-    animation: heartBeat 1s ease-in-out infinite;
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 8px 30px rgba(232,69,107,0.5); }
+    50% { box-shadow: 0 8px 50px rgba(232,69,107,0.8), 0 0 80px rgba(232,69,107,0.3); }
   }
 
   @keyframes heartBeat {
@@ -618,427 +92,425 @@
     45% { transform: scale(1.1); }
   }
 
-  .celebration-card h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.8rem;
-    color: var(--rose);
-    margin: 1rem 0 0.5rem;
-  }
-
-  .celebration-card p {
-    font-size: 1.1rem;
-    color: var(--wine);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-
-  .dinner-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
-    color: white;
-    text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 14px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: all 0.3s;
-    box-shadow: 0 8px 30px rgba(232, 69, 107, 0.35);
-  }
-
-  .dinner-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(232, 69, 107, 0.45);
-  }
-
-  /* ============ CONFETTI ============ */
-  .confetti-piece {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    top: -20px;
-    z-index: 100;
-    animation: confettiFall linear forwards;
+  @keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 
   @keyframes confettiFall {
-    0% { top: -20px; opacity: 1; }
-    100% { top: 110vh; opacity: 0; }
+    0% { top: -20px; opacity: 1; transform: rotateZ(0deg); }
+    100% { top: 110vh; opacity: 0; transform: rotateZ(720deg); }
   }
 
-  /* ============ RESPONSIVE ============ */
+  /* ============ PAGE 1 ============ */
+  #page1 { background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 40%, #f8bbd0 100%); }
+
+  .envelope-wrapper { cursor: pointer; transition: transform 0.3s; }
+  .envelope-wrapper:hover { transform: scale(1.05); }
+
+  .envelope {
+    width: 240px; height: 170px;
+    background: linear-gradient(145deg, #fff, #fce4ec);
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(232,69,107,0.2);
+    position: relative; overflow: hidden;
+  }
+
+  .envelope::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 50%;
+    background: linear-gradient(135deg, var(--rose), #e57373);
+    clip-path: polygon(0 0, 50% 80%, 100% 0);
+  }
+
+  .envelope .seal {
+    position: absolute; top: 38%; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 50px; background: var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; box-shadow: 0 4px 15px rgba(212,160,57,0.4); z-index: 2;
+  }
+
+  .welcome-title { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--rose); margin-bottom: 1rem; text-align: center; }
+  .welcome-sub { font-size: 1.05rem; color: var(--wine); margin-bottom: 2.5rem; text-align: center; opacity: 0.8; }
+  .open-text { margin-top: 1.5rem; font-size: 0.9rem; color: var(--rose); animation: pulse 2s ease-in-out infinite; }
+
+  /* ============ SHARED ============ */
+  .card {
+    background: white; border-radius: 28px; padding: 2.5rem 2rem;
+    max-width: 480px; width: 100%; text-align: center;
+    box-shadow: 0 25px 80px rgba(232,69,107,0.15);
+    position: relative; overflow: visible;
+  }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--rose), var(--gold), var(--rose)); border-radius: 28px 28px 0 0; }
+  .card h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep); margin-bottom: 0.3rem; }
+
+  .stage-label {
+    display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--rose); background: var(--rose-light); padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 1.2rem;
+  }
+
+  .btn-group { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-top: 1.5rem; position: relative; min-height: 100px; }
+
+  .yes-btn {
+    background: linear-gradient(135deg, var(--rose), #d4366e); color: white; border: none;
+    padding: 1rem 3rem; border-radius: 100px; font-size: 1.15rem; font-weight: 600;
+    cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
+    box-shadow: 0 8px 30px rgba(232,69,107,0.35); z-index: 2;
+  }
+  .yes-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 40px rgba(232,69,107,0.45); }
+
+  .no-btn {
+    background: none; border: 1.5px solid #e0d4d8; color: #aaa; font-size: 0.85rem;
+    cursor: pointer; padding: 0.6rem 1.5rem; border-radius: 100px; transition: all 0.25s;
+    font-family: 'Inter', sans-serif; z-index: 2;
+  }
+
+  .question-text { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--rose); margin: 1rem 0; }
+  .sweet-message { font-size: 1.05rem; line-height: 1.8; color: #555; margin: 1rem 0 0.5rem; padding: 0 0.5rem; }
+
+  /* ============ PAGE 3 ============ */
+  .reason-item {
+    display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.7rem;
+    font-size: 0.95rem; color: #555; line-height: 1.5; text-align: left;
+    opacity: 0; transform: translateX(-20px); animation: slideIn 0.5s forwards;
+  }
+  .reason-item .emoji { font-size: 1.2rem; flex-shrink: 0; }
+  .reasons-list { text-align: left; margin: 1rem auto; max-width: 340px; }
+
+  /* ============ PAGE 4 DARK ============ */
+  #page4 { background: linear-gradient(135deg, #2d1b30 0%, #6b2142 60%, #e8456b 100%); color: white; }
+
+  .dark-card {
+    background: rgba(255,255,255,0.07); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 28px;
+    padding: 2.5rem 2rem; max-width: 480px; width: 100%; text-align: center;
+    position: relative; overflow: visible;
+  }
+  .dark-card h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
+
+  .poem-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; line-height: 2; opacity: 0.9; margin: 1.2rem 0; }
+
+  .no-btn-dark {
+    background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5); font-size: 0.85rem; cursor: pointer;
+    padding: 0.6rem 1.5rem; border-radius: 100px; transition: all 0.15s;
+    font-family: 'Inter', sans-serif; z-index: 2;
+  }
+
+  .yes-btn-glow {
+    background: linear-gradient(135deg, var(--rose), #d4366e); color: white; border: none;
+    padding: 1rem 3rem; border-radius: 100px; font-size: 1.15rem; font-weight: 600;
+    cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
+    box-shadow: 0 8px 30px rgba(232,69,107,0.5); animation: glowPulse 2s ease-in-out infinite; z-index: 2;
+  }
+  .yes-btn-glow:hover { transform: translateY(-3px) scale(1.05); }
+
+  /* ============ PAGE 5 ============ */
+  #page5 { background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 100%); }
+
+  .slideshow-img {
+    width: 140px; height: 140px; border-radius: 50%; background: var(--rose-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem; margin: 0 auto 1rem;
+    box-shadow: 0 10px 40px rgba(232,69,107,0.15); animation: gentleBounce 3s ease-in-out infinite;
+  }
+
+  .countdown-text { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--wine); margin: 0.5rem 0 1rem; min-height: 2.5rem; }
+
+  /* ============ PAGE 6 ============ */
+  .dinner-details { background: var(--blush); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .dinner-details h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--deep); margin-bottom: 0.7rem; }
+  .detail-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.95rem; color: var(--wine); margin-bottom: 0.3rem; }
+
+  .mega-yes {
+    background: linear-gradient(135deg, var(--rose), #d4366e); color: white; border: none;
+    padding: 1.2rem 4rem; border-radius: 100px; font-size: 1.4rem; font-weight: 700;
+    cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
+    box-shadow: 0 10px 40px rgba(232,69,107,0.4); animation: glowPulse 2s ease-in-out infinite;
+    width: 100%; max-width: 350px;
+  }
+  .mega-yes:hover { transform: translateY(-3px) scale(1.05); }
+
+  .final-plea { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #555; line-height: 1.8; margin: 1rem 0 1.5rem; }
+
+  /* ============ PAGE 7 ============ */
+  #page7 { background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 100%); }
+  .celebration-card { text-align: center; max-width: 480px; }
+  .celebration-card .big-heart { font-size: 5rem; animation: heartBeat 1s ease-in-out infinite; }
+  .celebration-card h1 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--rose); margin: 1rem 0 0.5rem; }
+  .celebration-card p { font-size: 1.1rem; color: var(--wine); margin-bottom: 2rem; line-height: 1.7; }
+
+  .dinner-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 14px;
+    font-weight: 600; font-size: 1.05rem; transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(232,69,107,0.35);
+  }
+  .dinner-link:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,69,107,0.45); }
+
+  .confetti-piece { position: fixed; top: -20px; z-index: 100; animation: confettiFall linear forwards; }
+
   @media (max-width: 500px) {
-    .welcome-title { font-size: 2rem; }
+    .welcome-title { font-size: 2.2rem; }
     .envelope { width: 190px; height: 135px; }
-    .emoji-display { font-size: 2.2rem; }
-    .letter-box { width: 30px; height: 38px; font-size: 0.95rem; }
-    .letter-tile { width: 34px; height: 38px; font-size: 0.95rem; }
-    .final-card h1 { font-size: 2rem; }
-    .game-area { height: 280px; }
+    .card, .dark-card { padding: 2rem 1.5rem; }
+    .question-text { font-size: 1.5rem; }
+    .slideshow-img { width: 110px; height: 110px; font-size: 2.8rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- Floating hearts background -->
 <div class="hearts-bg" id="heartsBg"></div>
 
-<!-- ============ PAGE 1: WELCOME ============ -->
+<!-- PAGE 1: ENVELOPE -->
 <div class="page active" id="page1">
   <div class="welcome-title">Dear Sabrina...</div>
-  <p class="welcome-sub">You've received a special message.<br>But first, you'll have to earn it 💕</p>
+  <p class="welcome-sub">Someone has something very important to ask you 💕</p>
   <div class="envelope-wrapper" onclick="goToPage(2)">
-    <div class="envelope">
-      <div class="seal">💌</div>
-    </div>
+    <div class="envelope"><div class="seal">💌</div></div>
   </div>
   <p class="open-text">Tap the envelope to begin</p>
 </div>
 
-<!-- ============ PAGE 2: RIDDLE ============ -->
+<!-- PAGE 2: LEVEL 1 — Simple Ask (Normal No button) -->
 <div class="page" id="page2">
-  <div class="challenge-badge">🌸 Challenge 1 of 3 — Easy</div>
-  <div class="riddle-card">
-    <h2>Answer My Riddle</h2>
-    <p>
-      I have no wings, but I can fly.<br>
-      I have no eyes, but I can cry.<br>
-      I am given freely but can't be bought,<br>
-      I'm strongest when two share one thought.<br><br>
-      What am I?
+  <div class="card">
+    <div class="stage-label">Level 1 — A Simple Question</div>
+    <h2>Hi Sabrina 🌸</h2>
+    <p class="sweet-message">
+      Valentine's Day is here and there's only one person I want to spend it with...
     </p>
-    <div class="answer-options" id="riddleOptions">
-      <button class="answer-btn" onclick="checkRiddle(this, false)">🌙 A Dream</button>
-      <button class="answer-btn" onclick="checkRiddle(this, false)">🌬️ The Wind</button>
-      <button class="answer-btn" onclick="checkRiddle(this, true)">❤️ Love</button>
-      <button class="answer-btn" onclick="checkRiddle(this, false)">💧 A Tear</button>
-    </div>
-    <div class="feedback-msg" id="riddleFeedback"></div>
-  </div>
-</div>
-
-<!-- ============ PAGE 3: EMOJI PUZZLE ============ -->
-<div class="page" id="page3">
-  <div class="challenge-badge" style="color:var(--wine);border-color:rgba(107,33,66,0.2);">🧩 Challenge 2 of 3 — Medium</div>
-  <div class="puzzle-card">
-    <h2>Unscramble the Message</h2>
-    <div class="emoji-display">👩 + 🍽️ + 🌹 + 💑</div>
-    <p class="hint-text">Hint: What I'm hoping you'll say tonight</p>
-    <div class="word-input-group" id="wordSlots"></div>
-    <div class="scrambled-letters" id="scrambledLetters"></div>
-    <div class="puzzle-actions">
-      <button class="reset-btn" onclick="resetPuzzle()">↩ Reset</button>
-    </div>
-    <div class="feedback-msg" id="puzzleFeedback" style="color:var(--rose);"></div>
-  </div>
-</div>
-
-<!-- ============ PAGE 4: CATCH HEARTS GAME ============ -->
-<div class="page" id="page4">
-  <div class="challenge-badge">🎮 Challenge 3 of 3 — Hard</div>
-  <div class="game-container">
-    <h2 style="font-family:'Playfair Display',serif;margin-bottom:0.3rem;">Catch the Hearts!</h2>
-    <p style="font-size:0.9rem;opacity:0.7;margin-bottom:0.8rem;">Tap 15 hearts before time runs out</p>
-    <div class="game-header">
-      <div class="score-display">❤️ <span id="heartScore">0</span> / 15</div>
-      <div class="timer-display">⏱ <span id="gameTimer">20</span>s</div>
-    </div>
-    <div class="game-area" id="gameArea">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;" id="gameOverlay">
-        <button class="start-game-btn" onclick="startGame()">Start Game</button>
-      </div>
-    </div>
-    <div class="progress-bar-bg">
-      <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
-    </div>
-    <p class="game-instruction">Tap the falling hearts! 💗</p>
-  </div>
-</div>
-
-<!-- ============ PAGE 5: THE BIG QUESTION ============ -->
-<div class="page" id="page5">
-  <div class="final-card">
-    <div class="final-hearts">💐✨🌹</div>
-    <h1>Will You...</h1>
-    <div class="name">Sabrina Low</div>
-    <p class="message">
-      You've conquered every challenge — riddles, puzzles, and falling hearts.
-      But there's one last thing I need from you...
-    </p>
-    <div class="dinner-details">
-      <h3>Valentine's Dinner Date</h3>
-      <div class="detail-row">📅 Tonight — February 14th</div>
-      <div class="detail-row">🕗 8:00 PM</div>
-      <div class="detail-row">🍽️ A special dinner, just for us</div>
-    </div>
-    <p style="font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--rose);margin-bottom:1.5rem;">
-      Be my Valentine?
-    </p>
+    <p class="question-text">Will you be my Valentine?</p>
     <div class="btn-group">
       <button class="yes-btn" onclick="sayYes()">Yes! 💕</button>
-      <button class="no-btn" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">No thanks...</button>
+      <button class="no-btn" onclick="goToPage(3)">No thanks</button>
     </div>
   </div>
 </div>
 
-<!-- ============ PAGE 6: CELEBRATION ============ -->
+<!-- PAGE 3: LEVEL 2 — Reasons + Smaller No -->
+<div class="page" id="page3">
+  <div class="card">
+    <div class="stage-label">Level 2 — Wait, Hear Me Out</div>
+    <h2>Are you sure? Let me convince you 🥺</h2>
+    <div class="reasons-list">
+      <div class="reason-item" style="animation-delay:0.2s"><span class="emoji">🍽️</span> I already planned a lovely dinner for us tonight</div>
+      <div class="reason-item" style="animation-delay:0.5s"><span class="emoji">🕗</span> 8pm — the perfect Valentine's evening</div>
+      <div class="reason-item" style="animation-delay:0.8s"><span class="emoji">😊</span> I promise at least 3 genuine laughs</div>
+      <div class="reason-item" style="animation-delay:1.1s"><span class="emoji">🌹</span> There may or may not be flowers involved</div>
+      <div class="reason-item" style="animation-delay:1.4s"><span class="emoji">💫</span> Best Valentine's Day ever — pinky promise</div>
+    </div>
+    <p class="question-text" style="font-size:1.5rem;">How about now?</p>
+    <div class="btn-group">
+      <button class="yes-btn" style="padding:1.1rem 3.5rem;font-size:1.2rem;" onclick="sayYes()">Okay fine, Yes! 💕</button>
+      <button class="no-btn" onclick="goToPage(4)" style="font-size:0.75rem;padding:0.4rem 1rem;opacity:0.6;">Still no...</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: LEVEL 3 — Poem + Dodging No -->
+<div class="page" id="page4">
+  <div class="dark-card">
+    <div class="stage-label" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);">Level 3 — I Wrote You a Poem</div>
+    <h2>I'm pulling out the big guns 🥹</h2>
+    <div class="poem-text">
+      Roses are red,<br>
+      Violets are blue,<br>
+      I planned a whole dinner,<br>
+      Just to sit across from you.<br><br>
+      The candles are lit,<br>
+      The table is set,<br>
+      Say yes, Sabrina —<br>
+      Be the best Valentine yet.
+    </div>
+    <div class="btn-group">
+      <button class="yes-btn-glow" onclick="sayYes()">Yes, that was adorable! 🥰</button>
+      <button class="no-btn-dark" id="noBtn4" onmouseenter="runAway(4)" ontouchstart.prevent="runAway(4)" onclick="noClick4()">No...</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: LEVEL 4 — Growing Yes, Shrinking/Running No + Sad Face -->
+<div class="page" id="page5">
+  <div class="card">
+    <div class="stage-label">Level 4 — Getting Desperate</div>
+    <div class="slideshow-img" id="sadFace">🥺</div>
+    <h2>Sabrina please...</h2>
+    <p class="countdown-text" id="countdownText">Every second you don't say yes, my heart breaks a little more...</p>
+    <div class="btn-group" id="btnGroup5">
+      <button class="yes-btn" id="growingYes" onclick="sayYes()" style="transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);">YES 💕</button>
+      <button class="no-btn" id="tinyNo" onmouseenter="runAway(5)" ontouchstart.prevent="runAway(5)" onclick="noClick5()" style="transition:all 0.25s;">no</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: LEVEL 5 — No Button is Gone -->
 <div class="page" id="page6">
+  <div class="card" id="finalCard">
+    <div class="stage-label">Level 5 — Resistance is Futile 💘</div>
+    <h2>Okay Sabrina, real talk...</h2>
+    <p class="final-plea">
+      I've planned dinner, wrote a poem, and chased you through 5 pages.
+      The "No" button has officially quit. It packed its bags and left.<br><br>
+      It's just you, me, and this one gorgeous button. 😌
+    </p>
+    <div class="dinner-details">
+      <h3>Our Valentine's Dinner 🌹</h3>
+      <div class="detail-row">📅 Tonight — Valentine's Day</div>
+      <div class="detail-row">🕗 8:00 PM</div>
+      <div class="detail-row">🍽️ A dinner made for two</div>
+      <div class="detail-row">💕 Dress code: Whatever makes you feel amazing</div>
+    </div>
+    <div class="btn-group" style="min-height:auto;">
+      <button class="mega-yes" onclick="sayYes()">YES! I'll Be Your Valentine! 💖</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 7: CELEBRATION -->
+<div class="page" id="page7">
   <div class="celebration-card">
     <div class="big-heart">💖</div>
     <h1>She Said Yes!</h1>
-    <p>
-      Happy Valentine's Day, Sabrina! 🥰<br>
-      I can't wait for our dinner tonight.
-    </p>
-    <a class="dinner-link" href="https://share.google/mYhBDLen695wEFLiw" target="_blank">
-      🍽️ View Our Dinner Details
-    </a>
+    <p>Happy Valentine's Day, Sabrina! 🥰<br>I can't wait for tonight.</p>
+    <a class="dinner-link" href="https://share.google/mYhBDLen695wEFLiw" target="_blank">🍽️ View Our Dinner Details</a>
     <p style="margin-top:1.5rem;font-size:0.9rem;color:#999;">See you at 8pm 💕</p>
   </div>
 </div>
 
 <script>
-  // ============ FLOATING HEARTS ============
-  function createFloatingHearts() {
-    const container = document.getElementById('heartsBg');
-    const hearts = ['💕', '💗', '❤️', '💖', '🌸', '🩷', '✨'];
-    for (let i = 0; i < 20; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'floating-heart';
-      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-      heart.style.left = Math.random() * 100 + '%';
-      heart.style.animationDuration = (8 + Math.random() * 12) + 's';
-      heart.style.animationDelay = (Math.random() * 10) + 's';
-      heart.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
-      container.appendChild(heart);
+// ============ FLOATING HEARTS ============
+(function(){
+  const c = document.getElementById('heartsBg');
+  const h = ['💕','💗','❤️','💖','🌸','🩷','✨'];
+  for(let i=0;i<20;i++){
+    const d = document.createElement('div');
+    d.className='floating-heart';
+    d.textContent=h[Math.floor(Math.random()*h.length)];
+    d.style.left=Math.random()*100+'%';
+    d.style.fontSize=(0.8+Math.random()*1.2)+'rem';
+    d.style.animationDuration=(8+Math.random()*12)+'s';
+    d.style.animationDelay=(Math.random()*10)+'s';
+    c.appendChild(d);
+  }
+})();
+
+// ============ NAVIGATION ============
+function goToPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+  if(n===5) startGrowShrink();
+}
+
+// ============ LEVEL 3: DODGING NO ============
+let dodge4 = 0;
+const noTexts4 = ["No...","Wait—","Hmm...","Maybe?","🤔","Almost...","Fine!"];
+
+function runAway(level){
+  if(level === 4){
+    const btn = document.getElementById('noBtn4');
+    dodge4++;
+    const parent = btn.closest('.btn-group');
+    const pw = parent.offsetWidth/2 - 40;
+    const ph = 50;
+    const x = (Math.random()-0.5)*pw*2;
+    const y = (Math.random()-0.5)*ph*2;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+    btn.style.fontSize = Math.max(0.5, 0.85 - dodge4*0.05)+'rem';
+    btn.style.opacity = Math.max(0.2, 1 - dodge4*0.1);
+    btn.textContent = noTexts4[Math.min(dodge4, noTexts4.length-1)];
+    if(dodge4 >= 7) goToPage(5);
+  }
+  if(level === 5){
+    const btn = document.getElementById('tinyNo');
+    const yesBtn = document.getElementById('growingYes');
+    dodge5++;
+    const parent = document.getElementById('btnGroup5');
+    const pw = parent.offsetWidth/2 - 30;
+    const ph = 40;
+    const x = (Math.random()-0.5)*pw*2;
+    const y = (Math.random()-0.5)*ph*2;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+    const s = Math.max(0.15, 1 - dodge5*0.18);
+    btn.style.fontSize = (0.85*s)+'rem';
+    btn.style.opacity = Math.max(0.05, 1 - dodge5*0.22);
+    const noTexts5 = ["no","n..","🥺","..","💕"];
+    btn.textContent = noTexts5[Math.min(dodge5, noTexts5.length-1)];
+    // grow yes
+    const ys = 1 + dodge5*0.12;
+    yesBtn.style.transform = `scale(${Math.min(ys,1.7)})`;
+    if(dodge5 >= 5) goToPage(6);
+  }
+}
+
+let dodge5 = 0;
+
+function noClick4(){ dodge4 += 2; runAway(4); }
+function noClick5(){ dodge5 += 2; runAway(5); }
+
+// ============ LEVEL 4: AUTO GROW/SHRINK ============
+let growTimer = null;
+function startGrowShrink(){
+  let tick = 0;
+  const faces = ['🥺','😢','😭','💔','🥹','😤'];
+  const texts = [
+    "Every second you don't say yes, my heart breaks a little more...",
+    "The dinner reservation is getting lonely...",
+    "I even wrote you a poem, Sabrina!",
+    "I'm running out of sad emojis here...",
+    "The Yes button is growing. The No button is fading. It's science.",
+    "Just. Say. Yes. 🥹"
+  ];
+  if(growTimer) clearInterval(growTimer);
+  growTimer = setInterval(()=>{
+    tick++;
+    const face = document.getElementById('sadFace');
+    const text = document.getElementById('countdownText');
+    const yesBtn = document.getElementById('growingYes');
+    const noBtn = document.getElementById('tinyNo');
+    if(tick < faces.length){
+      face.textContent = faces[tick];
+      text.textContent = texts[tick];
     }
-  }
-  createFloatingHearts();
+    const ys = 1 + tick*0.08 + dodge5*0.12;
+    yesBtn.style.transform = `scale(${Math.min(ys,1.7)})`;
+    const ns = Math.max(0.2, 1 - tick*0.1 - dodge5*0.18);
+    noBtn.style.fontSize = (0.85*ns)+'rem';
+    noBtn.style.opacity = Math.max(0.05, 1 - tick*0.12 - dodge5*0.22);
+    if(tick >= 10) clearInterval(growTimer);
+  }, 2500);
+}
 
-  // ============ NAVIGATION ============
-  function goToPage(n) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page' + n).classList.add('active');
-  }
+// ============ SAY YES ============
+function sayYes(){
+  if(growTimer) clearInterval(growTimer);
+  goToPage(7);
+  launchConfetti();
+}
 
-  // ============ PAGE 2: RIDDLE ============
-  function checkRiddle(btn, correct) {
-    const feedback = document.getElementById('riddleFeedback');
-    if (correct) {
-      btn.classList.add('correct');
-      feedback.textContent = '💕 That\'s right! Love it is...';
-      feedback.style.color = '#4caf50';
-      setTimeout(() => goToPage(3), 1200);
-    } else {
-      btn.classList.add('wrong');
-      feedback.textContent = 'Not quite... try again! 🤔';
-      feedback.style.color = '#ef9a9a';
-      setTimeout(() => {
-        btn.classList.remove('wrong');
-        feedback.textContent = '';
-      }, 1200);
-    }
-  }
-
-  // ============ PAGE 3: EMOJI PUZZLE ============
-  const ANSWER = "DINNER DATE";
-  const answerLetters = ANSWER.replace(/ /g, '').split('');
-  let selectedLetters = [];
-  let letterTiles = [];
-
-  function initPuzzle() {
-    const slotsContainer = document.getElementById('wordSlots');
-    const lettersContainer = document.getElementById('scrambledLetters');
-    slotsContainer.innerHTML = '';
-    lettersContainer.innerHTML = '';
-    selectedLetters = [];
-
-    // Create word slots
-    ANSWER.split(' ').forEach(word => {
-      const slot = document.createElement('div');
-      slot.className = 'word-slot';
-      word.split('').forEach(() => {
-        const box = document.createElement('div');
-        box.className = 'letter-box';
-        slot.appendChild(box);
-      });
-      slotsContainer.appendChild(slot);
-    });
-
-    // Scramble letters
-    const scrambled = [...answerLetters].sort(() => Math.random() - 0.5);
-    letterTiles = [];
-    scrambled.forEach((letter, i) => {
-      const tile = document.createElement('button');
-      tile.className = 'letter-tile';
-      tile.textContent = letter;
-      tile.onclick = () => pickLetter(i);
-      lettersContainer.appendChild(tile);
-      letterTiles.push(tile);
-    });
-  }
-
-  function pickLetter(tileIndex) {
-    if (letterTiles[tileIndex].classList.contains('used')) return;
-    letterTiles[tileIndex].classList.add('used');
-    selectedLetters.push({ letter: letterTiles[tileIndex].textContent, tileIndex });
-
-    // Fill boxes
-    const boxes = document.querySelectorAll('.letter-box');
-    let pos = 0;
-    const answerNoSpace = ANSWER.replace(/ /g, '');
-    selectedLetters.forEach((sl, i) => {
-      if (i < boxes.length) {
-        boxes[i].textContent = sl.letter;
-        boxes[i].classList.add('filled');
+// ============ CONFETTI ============
+function launchConfetti(){
+  const colors = ['#e8456b','#d4a039','#f06292','#ce93d8','#ff8a80','#ff80ab','#ea80fc','#fff176'];
+  for(let w=0;w<3;w++){
+    setTimeout(()=>{
+      for(let i=0;i<50;i++){
+        const p = document.createElement('div');
+        p.className='confetti-piece';
+        p.style.left=Math.random()*100+'%';
+        p.style.background=colors[Math.floor(Math.random()*colors.length)];
+        p.style.borderRadius=Math.random()>0.5?'50%':'2px';
+        p.style.width=(6+Math.random()*8)+'px';
+        p.style.height=(6+Math.random()*8)+'px';
+        p.style.animationDuration=(2.5+Math.random()*3)+'s';
+        p.style.animationDelay=(Math.random())+'s';
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),6000);
       }
-    });
-
-    // Check if complete
-    if (selectedLetters.length === answerLetters.length) {
-      const attempt = selectedLetters.map(s => s.letter).join('');
-      if (attempt === answerNoSpace) {
-        boxes.forEach(b => b.classList.add('correct-letter'));
-        document.getElementById('puzzleFeedback').textContent = '🎉 Yes! A Dinner Date it is!';
-        setTimeout(() => goToPage(4), 1500);
-      } else {
-        document.getElementById('puzzleFeedback').textContent = 'Hmm, not quite! Try again 💭';
-        setTimeout(resetPuzzle, 1000);
-      }
-    }
+    }, w*800);
   }
-
-  function resetPuzzle() {
-    document.getElementById('puzzleFeedback').textContent = '';
-    initPuzzle();
-  }
-
-  initPuzzle();
-
-  // ============ PAGE 4: CATCH HEARTS GAME ============
-  let gameScore = 0;
-  let gameTimerVal = 20;
-  let gameInterval = null;
-  let spawnInterval = null;
-  let gameRunning = false;
-
-  function startGame() {
-    gameScore = 0;
-    gameTimerVal = 20;
-    gameRunning = true;
-    document.getElementById('heartScore').textContent = '0';
-    document.getElementById('gameTimer').textContent = '20';
-    document.getElementById('progressBar').style.width = '0%';
-    document.getElementById('gameOverlay').style.display = 'none';
-
-    // Remove old hearts
-    document.querySelectorAll('.game-heart').forEach(h => h.remove());
-
-    // Timer
-    gameInterval = setInterval(() => {
-      gameTimerVal--;
-      document.getElementById('gameTimer').textContent = gameTimerVal;
-      if (gameTimerVal <= 0) {
-        endGame(false);
-      }
-    }, 1000);
-
-    // Spawn hearts
-    spawnInterval = setInterval(spawnHeart, 500);
-  }
-
-  function spawnHeart() {
-    if (!gameRunning) return;
-    const area = document.getElementById('gameArea');
-    const heart = document.createElement('div');
-    heart.className = 'game-heart';
-    const hearts = ['❤️', '💗', '💖', '💕', '🩷'];
-    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-    heart.style.left = (5 + Math.random() * 85) + '%';
-    const duration = 2 + Math.random() * 2;
-    heart.style.animationDuration = duration + 's';
-
-    heart.onclick = (e) => {
-      e.stopPropagation();
-      if (heart.classList.contains('caught')) return;
-      heart.classList.add('caught');
-      gameScore++;
-      document.getElementById('heartScore').textContent = gameScore;
-      document.getElementById('progressBar').style.width = (gameScore / 15 * 100) + '%';
-      setTimeout(() => heart.remove(), 300);
-      if (gameScore >= 15) {
-        endGame(true);
-      }
-    };
-
-    area.appendChild(heart);
-    setTimeout(() => { if (heart.parentElement) heart.remove(); }, duration * 1000);
-  }
-
-  function endGame(won) {
-    gameRunning = false;
-    clearInterval(gameInterval);
-    clearInterval(spawnInterval);
-    document.querySelectorAll('.game-heart').forEach(h => h.remove());
-
-    const overlay = document.getElementById('gameOverlay');
-    overlay.style.display = 'flex';
-
-    if (won) {
-      overlay.innerHTML = `
-        <p style="font-size:2rem;margin-bottom:0.5rem;">🎉</p>
-        <p style="font-size:1.1rem;margin-bottom:1rem;">You caught them all!</p>
-        <button class="start-game-btn" onclick="goToPage(5)">See Your Surprise →</button>
-      `;
-    } else {
-      overlay.innerHTML = `
-        <p style="font-size:2rem;margin-bottom:0.5rem;">😢</p>
-        <p style="font-size:1.1rem;margin-bottom:1rem;">Time's up! You got ${gameScore}/15</p>
-        <button class="start-game-btn" onclick="startGame()">Try Again ❤️</button>
-      `;
-    }
-  }
-
-  // ============ PAGE 5: YES/NO ============
-  let noDodgeCount = 0;
-  function dodgeNo() {
-    noDodgeCount++;
-    const btn = document.getElementById('noBtn');
-    const phrases = [
-      "Are you sure? 🥺",
-      "Think again! 💕",
-      "You can't say no! 😤",
-      "Pretty please? 🌹",
-      "C'mon! 😭"
-    ];
-    btn.textContent = phrases[Math.min(noDodgeCount - 1, phrases.length - 1)];
-    btn.style.transform = `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*40}px)`;
-    btn.style.fontSize = Math.max(0.5, 0.8 - noDodgeCount * 0.06) + 'rem';
-  }
-
-  function sayYes() {
-    goToPage(6);
-    launchConfetti();
-  }
-
-  // ============ CONFETTI ============
-  function launchConfetti() {
-    const colors = ['#e8456b', '#d4a039', '#f06292', '#ce93d8', '#ff8a80', '#ff80ab', '#ea80fc'];
-    for (let i = 0; i < 100; i++) {
-      const piece = document.createElement('div');
-      piece.className = 'confetti-piece';
-      piece.style.left = Math.random() * 100 + '%';
-      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-      piece.style.width = (6 + Math.random() * 8) + 'px';
-      piece.style.height = (6 + Math.random() * 8) + 'px';
-      piece.style.animationDuration = (2 + Math.random() * 3) + 's';
-      piece.style.animationDelay = (Math.random() * 2) + 's';
-      document.body.appendChild(piece);
-      setTimeout(() => piece.remove(), 6000);
-    }
-  }
+}
 </script>
 </body>
 </html>
